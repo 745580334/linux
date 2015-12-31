@@ -1,0 +1,2 @@
+# linux
+learn by myself
