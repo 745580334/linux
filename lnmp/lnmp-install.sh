@@ -955,9 +955,9 @@ EOF
 			clear
 		else
 			echo 	"==========================================="
-	       	Red 	"|Warning!!You had too many wrong input!!! |"
-	       	Red 	"|Please Enter Right Choice Again After 5s |"
-	       	echo 	"==========================================="
+	       		Red 	"|Warning!!You had too many wrong input!!! |"
+	       		Red 	"|Please Enter Right Choice Again After 5s |"
+	       		echo 	"==========================================="
 			for i in `seq -w 5 -1 1`
 			do
 				echo -en "\b\b$i"
