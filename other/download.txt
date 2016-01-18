@@ -1,0 +1,51 @@
+apache
+	http://httpd.apache.org/download.cgi
+tomcat
+	http://tomcat.apache.org/download-60.cgi
+JK	(apache整合tomcat工具)
+	http://tomcat.apache.org/download-connectors.cgi
+apr库
+	http://apr.apache.org/download.cgi
+zabbix
+	http://www.zabbix.com/download.php
+	http://sourceforge.net/projects/zabbix/files/ZABBIX%20Latest%20Stable/
+	http://jaist.dl.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable
+zentao
+	www.zentao.net/download
+lzo
+	http://www.oberhumer.com/opensource/lzo/download/
+ppp
+	http://sourceforge.net/projects/poptop/files/
+pptpd
+	http://sourceforge.net/projects/poptop/files/
+epel源
+	http://download.ceph.com/rpm/el6/noarch/
+redmine
+	http://www.redmine.org/projects/redmine/wiki/Download
+ruby
+	https://www.ruby-lang.org/en/downloads/
+ntop
+	http://sourceforge.net/projects/ntop/files/
+python
+	https://www.python.org/ftp/python/
+GeoIP
+	http://dev.maxmind.com/zh-hans/geoip/legacy/geolite/
+rrdtool
+	http://oss.oetiker.ch/rrdtool/pub/
+libpcap
+	http://www.tcpdump.org/release/
+	http://www.tcpdump.org/#latest-release
+tcpdump
+	http://www.tcpdump.org/release/
+redis
+	http://redis.io/download
+varnish
+	http://repo.varnish-cache.org/source/
+rsync
+	http://rsync.samba.org/
+nagios
+	http://sourceforge.net/projects/nagios/files/
+nagiosgraph
+	http://sourceforge.net/projects/nagiosgraph/files/
+GD
+	http://download.chinaunix.net/download/0004000/3479.shtml

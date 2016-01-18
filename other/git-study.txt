@@ -1,0 +1,62 @@
+git命令使用说明：
+
+git clone: 这是较为简单的一种初始化方式，当你已经有一个远程的Git版本库，只需要在本地克隆一份
+	git clone git@github.com:spiritmans/python.git
+
+git init: 当你本地创建了一个工作目录，你可以进入这个目录，使用该命令进行初始化
+	git init python
+
+git remote: 把本地的git工作目录同步到远程服务器上
+	git remote add origin git@github.com:spiritmans/test.git
+	git push -u origin master
+
+git diff：查看文件具体修改内容
+	git diff test.txt
+
+git add: 是将当前更改或者新增的文件加入到Git的索引中，加入到Git的索引中就表示记入了版本历史中，这也是提交之前所需要执行的一步
+	git add test.txt
+
+git rm：从当前的工作空间中和索引中删除文件
+	git rm test.txt
+
+git commit: 提交当前工作空间的修改内容
+	git commit test.txt
+
+git status: 查看工作去状态
+	git status
+
+git push：将本地commit的代码更新到远程版本库中
+	git push test      test：远程服务器名
+
+git pull: 从其他的版本库（既可以是远程的也可以是本地的）将代码更新到本地
+	git pull python master
+
+git log: 查看历史日志
+	git log test.txt
+
+git revert：还原一个版本的修改，必须提供一个具体的Git版本号(哈希值)
+	git revert bbaf6fb5060b4875b18ff9ff637ce118256d6f20
+
+git checkout：Git的checkout有两个作用:
+	在不同的branch之间进行切换
+		git checkout new_branch:切换到new_branch的分支
+	另一个功能是还原代码的作用
+		git checkout test.txt:将test.txt文件从上一个已提交的版本中更新回来，未提交的内容全部会回滚
+
+git branch：对分支的增、删、查等操作
+	git branch: 列出本地所有的分支
+	git branch new_branch: 从当前的工作版本创建一个叫做new_branch的新分支
+	git branch -D new_branch: 强制删除叫做new_branch的分支
+
+git reset：将当前的工作目录完全回滚到指定的版本号
+	git reset bbaf6fb5060b4875b18ff9ff637ce118256d6f20
+
+git config：新增、更改Git的各种设置
+	git config --list: 查看设置
+	git config --global user.name "spiritmans"
+	git config --global user.email "liush20150721@163.com"
+	git config branch.master.remote origin: 将master的远程版本库设置为别名叫做origin版本库
+
+git tag：将某个具体的版本打上一个标签，这样就不需要记忆版本号的哈希值
+	git tag revert_version bbaf6fb5060b4875b18ff9ff637ce118256d6f20
+		（revert_version：标签名）
