@@ -1,5 +1,13 @@
 一、安装lnmp/lamp环境
 	lnmp-install.sh/lamp-install.sh
+	
+	vim vim /usr/local/php/etc/php.ini
+		date.timezone = Asia/Shanghai
+	:wq
+	/etc/init.d/php-fpm restart
+
+	mysql
+	>set global sql_mode="NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION";
 二、下载相关软件
 	cacti-0.8.8f.tar.gz
 	cacti-spine-0.8.8f.tar.gz
@@ -22,28 +30,31 @@
 
 	创建cacti用户、配置web站点
 	useradd -s /sbin/nologin cacti
-	tar cacti-0.8.8f.tar.gz
+	tar fx cacti-0.8.8f.tar.gz
 	cp -r cacti-0.8.8f /usr/local/nginx/html/cacti
 
 	创建cacti数据库、导入数据库
 	mysql -u root -p
-	>create database cacti;
+	>create database cactidb;
 	>create user 'cacti'@'localhost' identified by 'cacti123;
 	>flush privileges;
-	>grant all on cacti.* to 'cacti'@'127.0.0.1' identified by 'cacti123';
+	>grant all on cactidb.* to 'cacti'@'127.0.0.1' identified by 'cacti123';
 	>flush privileges;
 	>source /usr/local/nginx/html/cacti/cacti.sql;
 
 	编辑配置文件
+	cd /usr/local/nginx/html/cacti
+	chmod -R 777 log rra
 	cd /usr/local/nginx/html/cacti/include
 	vim config.php
 		$database_type = "mysql";
-		$database_default = "cacti";
+		$database_default = "cactidb";
 		$database_hostname = "127.0.0.1";
 		$database_username = "cacti";
-		$database_password = "cacti";
+		$database_password = "cactiadmin";
 		$database_port = "3306";
 	:wq
+
 
 四、初始化安装
 	浏览器输入http://server-ip/cacti
