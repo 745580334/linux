@@ -55,6 +55,7 @@
 		$database_port = "3306";
 	:wq
 
+	echo "*/5 * * * * /usr/local/php/bin/php /usr/local/nginx/html/cacti/poller.php >/dev/null 2>&1" >/var/spool/cron/cacti 
 
 四、初始化安装
 	浏览器输入http://server-ip/cacti
