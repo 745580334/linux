@@ -81,8 +81,8 @@ Violet() {
 #choose version
 choose_nginx_version() {
 	Yellow "You have 3 options for your Nginx install."
-	echo "1: Install Nginx 1.8.0 (Default)"
-	echo "2: Install Nginx 1.9.5"
+	echo "1: Install Nginx 1.8.0"
+	echo "2: Install Nginx 1.9.9 (Default)"
 	echo "3: Install Tengine 2.1.1"
 	echo "0: Return"
 	read -p "Please enter your choice[0-3]: " Nginx
@@ -93,7 +93,7 @@ choose_nginx_version() {
 		sleep 2
 		;;
 		2)
-		NGINX=nginx-1.9.5.tar.gz
+		NGINX=nginx-1.9.9.tar.gz
 		Blue "You will install $NGINX"
 		sleep 2
 		;;
@@ -107,7 +107,7 @@ choose_nginx_version() {
 		break
 		;;
 		*)
-		NGINX=nginx-1.8.0.tar.gz
+		NGINX=nginx-1.9.9.tar.gz
 		Blue "You will install $NGINX"
 		sleep 2
 		;;
