@@ -57,3 +57,6 @@ git
 	https://www.kernel.org/pub/software/scm/git/
 MariaDB
 	http://mirrors.ctyun.cn/MariaDB/
+
+Ceph
+	http://ceph.com/rpm-firefly/
