@@ -1,4 +1,4 @@
-apache
+﻿apache
 	http://httpd.apache.org/download.cgi
 tomcat
 	http://tomcat.apache.org/download-60.cgi
@@ -49,3 +49,14 @@ nagiosgraph
 	http://sourceforge.net/projects/nagiosgraph/files/
 GD
 	http://download.chinaunix.net/download/0004000/3479.shtml
+pcre
+	https://sourceforge.net/projects/pcre/files/pcre/
+OSSIM
+	http://downloads.alienvault.com/c/download
+git
+	https://www.kernel.org/pub/software/scm/git/
+MariaDB
+	http://mirrors.ctyun.cn/MariaDB/
+
+Ceph
+	http://ceph.com/rpm-firefly/
