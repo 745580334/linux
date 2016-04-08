@@ -60,3 +60,4 @@ MariaDB
 
 Ceph
 	http://ceph.com/rpm-firefly/
+	http://download.ceph.com/rpm/el6/noarch/
