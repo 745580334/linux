@@ -440,6 +440,7 @@ libmcrypt_install() {
 	[ ! -f $SOFT/$LIBMCRYPT ] && (echo "There is no $LIBMCRYPT!";exit 1)
 	cd $SOFT && tar fx $SOFT/$LIBMCRYPT
 	libmcrypt=`echo $LIBMCRYPT |awk -F '.tar' '{print $1}'`
+	cd $libmcrypt
 	./configure
 	if [ $? -eq 0 ];then
 	    make
