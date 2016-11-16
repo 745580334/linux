@@ -1,0 +1,72 @@
+#!bin/bash
+RedisPre="/usr/local/redis"
+RedisSrvCmd="${RedisPre}/bin/redis-server"
+RedisCliCmd="${RedisPre}/bin/redis-cli"
+RedisConf="${RedisPre}/conf"
+RedisPort="`seq 6379 6379`"
+
+
+start() {
+	for i in ${RedisPort};do
+        state=`netstat -ntlp |grep "${i}"|grep -v grep |wc -l`
+        if [ ${state} -gt 0 ];then
+        	echo -e "\033[33mRedisServer is Running on Port ${i} . Pls Check...\033[0m"
+         	continue 2
+        else
+           	${RedisSrvCmd} ${RedisConf}/redis.${i}.conf	
+           	state=`netstat -ntlp |grep "$i"|grep -v grep |wc -l`
+           	if [ ${state} -gt 0 ];then
+           	    echo -e "\033[32mRedisServer Started Successed on Port ${i}.\033[0m"
+           	else
+	    	    echo -e "\033[31mRedisServer Started Failed on Port ${i} , Pls Check...\033[0m"
+	    	fi
+        fi
+        done
+}
+stop() {
+	for i in ${RedisPort};do
+        state=`netstat -ntlp |grep "${i}"|grep -v grep |wc -l`
+        if [ ${state} -eq 0 ];then
+           	echo -e "\033[33mRedisServer is Stopped on Port ${i} . Pls Check...\033[0m"
+           	continue 2
+        else
+           	${RedisCliCmd} -p ${i} shutdown
+           	state=`netstat -ntlp |grep "$i"|grep -v grep |wc -l`
+           	if [ ${state} -eq 0 ];then
+           	    echo -e "\033[32mRedisServer Stopped Successed on Port ${i}.\033[0m"
+           	else
+	    	    echo -e "\033[31mRedisServer Stopped Failed on Port ${i} , Pls Check...\033[0m"
+	    	fi
+        fi
+        done
+}
+status() {
+	for i in ${RedisPort};do
+        state=`netstat -ntlp |grep "$i"|grep -v grep |wc -l`
+        if [ ${state} -gt 0 ];then
+           	echo -e "\033[32mRedisServer is Running on Port ${i}.\033[0m"
+        else
+           	echo -e "\033[31mRedisServer is Stopped on Port ${i}.Pls Check...\033[0m"
+        fi
+        done
+}
+
+case $1 in
+	start)
+		start
+	;;
+	stop)
+		stop
+	;;
+	restart)
+		stop
+		sleep 1
+		start
+	;;
+	status)
+		status
+	;;
+    *)
+    echo -e "\033[31mUSAGE: $0 start|stop|restart|status\033[0m"
+    ;;
+esac
